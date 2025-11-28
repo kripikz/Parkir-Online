@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home - Parking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('img/mall.jpg');
+      background-size: cover;
+      color: #6b7280;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    a:focus, button:focus {
+      outline: 3px solid #a3bffa;
+      outline-offset: 2px;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2rem 0 4rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.8); 
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+      font-size: 48px;
+      color: #111827;
+      margin: 0;
+      user-select: none;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #374151;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    nav a:hover,
+    nav a:focus {
+      background-color: #2563eb;
+      color: #fff;
+      outline: none;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 700px;
+      margin-top: 15rem;
+      margin-bottom: 23rem;
+    }
+    .hero h2 {
+      font-size: 52px;
+      font-weight: 700;
+      color: #fff; 
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      user-select: none;
+      text-shadow: 2px 2px 4px rgba(3, 0, 0, 2); 
+    }
+    .hero p {
+      font-size: 25px; 
+      color: #fffafa; 
+      margin-bottom: 3rem;
+      user-select: text;
+      text-shadow: 1px 1px 2px rgba(1, 0, 0, 2); 
+    }
+    .hero a.button {
+      background-color: white; 
+      color: #111827; 
+      padding: 1rem 3rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgb(17 24 39 / 0.3);
+      transition: background-color 0.25s ease;
+      user-select: none;
+      display: inline-block;
+    }
+    .hero a.button:hover,
+    .hero a.button:focus {
+      background-color: #2563eb; 
+      color: white; 
+      outline: none;
+    }
+
+    .about {
+      max-width: 900px;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: #374151;
+      padding: 0 1rem;
+      user-select: text;
+    }
+    .about h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .about p {
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .faq, .edukasi {
+      max-width: 900px;
+      margin-bottom: 4rem;
+      color: #000; 
+      padding: 0 1rem;
+      user-select: text;
+      display: none; 
+      background-color: rgba(255, 255, 255, 0.8); 
+      border-radius: 10px; 
+    }
+    .faq h2, .edukasi h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      user-select: none;
+      text-align: center;
+    }
+    .faq p, .edukasi p {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      font-size: 14px;
+      color: #9ca3af;
+      padding: 1.5rem 5vw;
+      user-select: none;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .share-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .share-button i {
+      margin-right: 0.5rem;
+    }
+
+    .share-button.facebook {
+      background-color: #1877f2;
+    }
+
+    .share-button.twitter {
+      background-color: #1da1f2;
+    }
+
+    .share-button.linkedin {
+      background-color: #0077b5;
+    }
+
+    .share-button.whatsapp {
+      background-color: #25d366;
+    }
+
+    .share-button:hover {
+      opacity: 0.8;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .back-button:hover {
+      background-color: #367c39; 
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Parkir</h1>
+    <nav role="navigation" aria-label="Primary">
+      <a href="booking.php">Booking</a>
+      <a href="#" onclick="showSection('faq')">FAQ</a>
+      <a href="#" onclick="showSection('edukasi')">Edukasi</a>
+      <a href="#" onclick="logout(event)">Logout</a>
+    </nav>
+  </header>
+
+  <main class="container" role="main">
+    <section id="hero" class="hero" aria-label="Welcome message and call to action">
+      <h2>Selamat Datang di Sistem Booking Parkir</h2>
+      <p>Pesan tempat parkir Anda dengan mudah dan cepat. Hindari antrian dan pastikan kendaraan Anda punya tempat.</p>
+      <a class="button" href="booking.php">Mulai Sekarang</a>
+    </section>
+
+    <section class="faq" aria-label="FAQ Section">
+      <a href="#" onclick="showWelcome(event)" class="back-button">Kembali</a>
+      <h2>FAQ (Frequently Asked Questions)</h2>
+      <p>
+        <strong>Q: Bagaimana cara memesan tempat parkir?</strong><br>
+        A: Anda dapat memesan tempat parkir melalui halaman Booking. Pilih tanggal, durasi, dan tempat parkir yang tersedia, lalu ikuti langkah-langkah selanjutnya.
+      </p>
+      <p>
+        <strong>Q: Apa saja metode pembayaran yang tersedia?</strong><br>
+        A: Kami menerima pembayaran melalui Cash, Dana, BCA, dan QRIS. Pastikan Anda memilih metode pembayaran yang paling nyaman bagi Anda.
+      </p>
+      <p>
+        <strong>Q: Apakah saya bisa membatalkan pesanan parkir?</strong><br>
+        A: Ya, Anda dapat membatalkan pesanan parkir Anda maksimal 2 jam sebelum waktu parkir yang dijadwalkan. Silakan hubungi layanan pelanggan kami untuk bantuan lebih lanjut.
+      </p>
+      <p>
+        <strong>Q: Bagaimana jika saya terlambat datang ke tempat parkir?</strong><br>
+        A: Kami memberikan toleransi keterlambatan selama 15 menit. Jika Anda terlambat lebih dari itu, tempat parkir Anda mungkin akan diberikan kepada pelanggan lain.
+      </p>
+      <p>
+        <strong>Q: Apakah ada biaya tambahan selain biaya parkir?</strong><br>
+        A: Tidak, tidak ada biaya tambahan selain biaya parkir yang tertera saat Anda melakukan pemesanan.
+      </p>
+    </section>
+
+    <section class="edukasi" aria-label="Edukasi Section">
+      <a href="#" onclick="showWelcome(event)" class="back-button">Kembali</a>
+      <h2>Laman Edukasi</h2>
+      <p>
+        <strong>Tips Parkir Aman dan Nyaman</strong><br>
+        1. Pastikan kendaraan Anda terkunci dengan baik sebelum meninggalkan tempat parkir. Periksa kembali semua pintu dan jendela.<br>
+        2. Hindari meninggalkan barang berharga di dalam kendaraan yang terlihat dari luar. Simpan barang berharga di tempat yang aman atau bawa bersama Anda.<br>
+        3. Perhatikan rambu-rambu parkir dan parkirlah sesuai dengan aturan yang berlaku. Hindari parkir di tempat yang dilarang atau dapat mengganggu lalu lintas.<br>
+        4. Catat lokasi parkir Anda atau gunakan fitur penanda lokasi di aplikasi peta Anda. Ini akan membantu Anda menemukan kendaraan Anda dengan mudah saat kembali.<br>
+        5. Laporkan segera jika Anda melihat aktivitas mencurigakan di sekitar tempat parkir. Keamanan adalah tanggung jawab kita bersama.
+      </p>
+      <p>
+        <strong>Cara Menggunakan Sistem Booking Parkir</strong><br>
+        1. Kunjungi halaman Booking melalui menu navigasi.<br>
+        2. Pilih tanggal dan durasi parkir yang Anda inginkan.<br>
+        3. Pilih tempat parkir yang tersedia dari denah parkir yang ditampilkan.<br>
+        4. Pilih metode pembayaran yang Anda inginkan dan lakukan pembayaran.<br>
+        5. Setelah pembayaran berhasil, Anda akan menerima konfirmasi pemesanan dan detail tempat parkir Anda.
+      </p>
+    </section>
+
+    <section class="about" aria-label="About Parkinc">
+      <h2>Tentang Kami</h2>
+      <p>
+        Sistem Booking Parkir adalah solusi inovatif untuk memudahkan Anda dalam mencari dan memesan tempat parkir.
+        Dengan antarmuka yang sederhana dan cepat, Anda dapat menghindari antrian dan memastikan kendaraan Anda
+        mendapatkan tempat yang aman. Kami berkomitmen untuk memberikan pengalaman terbaik bagi pengguna kami
+        dengan layanan yang efisien dan terpercaya.
+      </p>
+    </section>
+
+    <div class="share-buttons">
+      <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=[URL_HALAMAN]" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+      <a class="share-button twitter" href="https://twitter.com/intent/tweet?url=[URL_HALAMAN]&text=[TEKS_UNTUK_DIBAGIKAN]" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+      <a class="share-button linkedin" href="https://www.linkedin.com/shareArticle?url=[URL_HALAMAN]&title=[JUDUL_HALAMAN]&summary=[DESKRIPSI_HALAMAN]" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin-in"></i> LinkedIn
+      </a>
+      <a class="share-button whatsapp" href="https://api.whatsapp.com/send?text=[URL_HALAMAN] [TEKS_UNTUK_DIBAGIKAN]" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Parkinc. All rights reserved.
+  </footer>
+
+  <script>
+    function logout(event) {
+      event.preventDefault();
+      localStorage.removeItem("loggedInUser");
+      alert("Logout berhasil!");
+      window.location.href = "homepage.html";
+    }
+
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('main > section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      const selectedSection = document.querySelector(`.${sectionId}`);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+      }
+    }
+
+    function showWelcome(event) {
+      event.preventDefault();
+      const sections = document.querySelectorAll('main > section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      document.getElementById('hero').style.display = 'block';
+
+      window.scrollTo(0, 0);
+    }
+
+    const currentURL = window.location.href;
+
+    const shareButtons = document.querySelectorAll('.share-button');
+    shareButtons.forEach(button => {
+      let href = button.href;
+      href = href.replace('[URL_HALAMAN]', encodeURIComponent(currentURL));
+      href = href.replace('[JUDUL_HALAMAN]', encodeURIComponent(document.title));
+      href = href.replace('[DESKRIPSI_HALAMAN]', encodeURIComponent(document.querySelector('meta[name="description"]').content || 'Deskripsi halaman'));
+      href = href.replace('[TEKS_UNTUK_DIBAGIKAN]', encodeURIComponent('Lihat sistem booking parkir ini!'));
+      button.href = href;
+    });
+  </script>
+</body>
+</html>
